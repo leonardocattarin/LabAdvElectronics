@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "/home/leorando/Lab_Advanced_Electronics/Lecture_05/LabClass_05_Delayer/nyquist.xst" -ofn "/home/leorando/Lab_Advanced_Electronics/Lecture_05/LabClass_05_Delayer/nyquist.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc nyquist.ucf -uc dac_driver.ucf -uc adc_driver.ucf -p xc3s700an-fgg484-4 nyquist.ngc nyquist.ngd  
+map -intstyle ise -p xc3s700an-fgg484-4 -cm area -ir off -pr b -c 100 -o nyquist_map.ncd nyquist.ngd nyquist.pcf 
+par -w -intstyle ise -ol high -t 1 nyquist_map.ncd nyquist.ncd nyquist.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml nyquist.twx nyquist.ncd -o nyquist.twr nyquist.pcf -ucf nyquist.ucf -ucf dac_driver.ucf -ucf adc_driver.ucf 
+bitgen -intstyle ise -f nyquist.ut nyquist.ncd 

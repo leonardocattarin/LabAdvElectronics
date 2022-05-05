@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/leorando/Lab_Advanced_Electronics/Lecture_05/LabClass_05_Nyquist_ADC_DAC/nyquist.ncd
+OUTFILE=/home/leorando/Lab_Advanced_Electronics/Lecture_05/LabClass_05_Nyquist_ADC_DAC/nyquist.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s700an-4fgg484
+WORKINGDIR=/home/leorando/Lab_Advanced_Electronics/Lecture_05/LabClass_05_Nyquist_ADC_DAC
+LICENSE=WebPack
+USER_INFO=211072777_0_0_836

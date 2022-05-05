@@ -1,0 +1,5 @@
+verilog work "Module_Latch_14_bit.v"
+verilog work "module_counter_8_bit.v"
+verilog work "header_DAC_driver.v"
+verilog work "header_ADC_driver.v"
+verilog work "nyquist.v"

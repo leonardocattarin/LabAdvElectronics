@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "/home/leorando/Lab_Advanced_Electronics/Lecture_02/LabClass_02_SimpleChronometer/simpleChronometer.xst" -ofn "/home/leorando/Lab_Advanced_Electronics/Lecture_02/LabClass_02_SimpleChronometer/simpleChronometer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc simpleChronometer.ucf -p xc3s700an-fgg484-4 simpleChronometer.ngc simpleChronometer.ngd  
+map -intstyle ise -p xc3s700an-fgg484-4 -cm area -ir off -pr off -c 100 -o simpleChronometer_map.ncd simpleChronometer.ngd simpleChronometer.pcf 
+par -w -intstyle ise -ol high -t 1 simpleChronometer_map.ncd simpleChronometer.ncd simpleChronometer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml simpleChronometer.twx simpleChronometer.ncd -o simpleChronometer.twr simpleChronometer.pcf -ucf simpleChronometer.ucf 
+bitgen -intstyle ise -f simpleChronometer.ut simpleChronometer.ncd 

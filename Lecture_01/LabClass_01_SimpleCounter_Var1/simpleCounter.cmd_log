@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "/home/leonardo.cattarin/Documents/Lab_Advanced_Electronics/LabClass_01_SimpleCounter_Var1/simpleCounter.xst" -ofn "/home/leonardo.cattarin/Documents/Lab_Advanced_Electronics/LabClass_01_SimpleCounter_Var1/simpleCounter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc simpleCounter.ucf -p xc3s700an-fgg484-4 simpleCounter.ngc simpleCounter.ngd  
+map -intstyle ise -p xc3s700an-fgg484-4 -cm area -ir off -pr off -c 100 -o simpleCounter_map.ncd simpleCounter.ngd simpleCounter.pcf 
+par -w -intstyle ise -ol high -t 1 simpleCounter_map.ncd simpleCounter.ncd simpleCounter.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml simpleCounter.twx simpleCounter.ncd -o simpleCounter.twr simpleCounter.pcf -ucf simpleCounter.ucf 
+bitgen -intstyle ise -f simpleCounter.ut simpleCounter.ncd 

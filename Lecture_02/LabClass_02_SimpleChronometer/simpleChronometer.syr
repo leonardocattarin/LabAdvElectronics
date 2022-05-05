@@ -1,0 +1,453 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Reading design: simpleChronometer.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "simpleChronometer.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "simpleChronometer"
+Output Format                      : NGC
+Target Device                      : xc3s700an-4-fgg484
+
+---- Source Options
+Top Module Name                    : simpleChronometer
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "module_multiplexer_2_input_8_bit_synchronous.v" in library work
+Compiling verilog file "module_frequencyDivider.v" in library work
+Module <Module_Multiplexer_2_input_8_bit_sync> compiled
+Compiling verilog file "module_counter_8_bit_sync.v" in library work
+Module <Module_FrequencyDivider> compiled
+Compiling verilog file "simpleChronometer.v" in library work
+Module <Module_Counter_8_bit_sync> compiled
+Module <simpleChronometer> compiled
+No errors in compilation
+Analysis of file <"simpleChronometer.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <simpleChronometer> in library <work>.
+
+Analyzing hierarchy for module <Module_FrequencyDivider> in library <work>.
+
+Analyzing hierarchy for module <Module_Counter_8_bit_sync> in library <work>.
+
+Analyzing hierarchy for module <Module_Multiplexer_2_input_8_bit_sync> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <simpleChronometer>.
+Module <simpleChronometer> is correct for synthesis.
+ 
+Analyzing module <Module_FrequencyDivider> in library <work>.
+Module <Module_FrequencyDivider> is correct for synthesis.
+ 
+Analyzing module <Module_Counter_8_bit_sync> in library <work>.
+Module <Module_Counter_8_bit_sync> is correct for synthesis.
+ 
+Analyzing module <Module_Multiplexer_2_input_8_bit_sync> in library <work>.
+Module <Module_Multiplexer_2_input_8_bit_sync> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Module_FrequencyDivider>.
+    Related source file is "module_frequencyDivider.v".
+    Found 1-bit register for signal <clk_out>.
+    Found 30-bit up counter for signal <counter>.
+    Found 32-bit comparator greatequal for signal <counter$cmp_ge0000> created at line 16.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Module_FrequencyDivider> synthesized.
+
+
+Synthesizing Unit <Module_Counter_8_bit_sync>.
+    Related source file is "module_counter_8_bit_sync.v".
+    Found 1-bit register for signal <carry>.
+    Found 8-bit up counter for signal <out>.
+    Found 8-bit comparator less for signal <carry$cmp_lt0000> created at line 29.
+    Found 1-bit register for signal <clk_old>.
+    Found 8-bit comparator greatequal for signal <out$cmp_ge0000> created at line 29.
+    Found 8-bit subtractor for signal <out$sub0000> created at line 29.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <Module_Counter_8_bit_sync> synthesized.
+
+
+Synthesizing Unit <Module_Multiplexer_2_input_8_bit_sync>.
+    Related source file is "module_multiplexer_2_input_8_bit_synchronous.v".
+    Found 8-bit register for signal <mux_output>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <Module_Multiplexer_2_input_8_bit_sync> synthesized.
+
+
+Synthesizing Unit <simpleChronometer>.
+    Related source file is "simpleChronometer.v".
+Unit <simpleChronometer> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 8-bit subtractor                                      : 4
+# Counters                                             : 5
+ 30-bit up counter                                     : 1
+ 8-bit up counter                                      : 4
+# Registers                                            : 10
+ 1-bit register                                        : 9
+ 8-bit register                                        : 1
+# Comparators                                          : 9
+ 32-bit comparator greatequal                          : 1
+ 8-bit comparator greatequal                           : 4
+ 8-bit comparator less                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 8-bit subtractor                                      : 4
+# Counters                                             : 5
+ 30-bit up counter                                     : 1
+ 8-bit up counter                                      : 4
+# Registers                                            : 17
+ Flip-Flops                                            : 17
+# Comparators                                          : 9
+ 32-bit comparator greatequal                          : 1
+ 8-bit comparator greatequal                           : 4
+ 8-bit comparator less                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <simpleChronometer> ...
+
+Optimizing unit <Module_Counter_8_bit_sync> ...
+
+Optimizing unit <Module_Multiplexer_2_input_8_bit_sync> ...
+WARNING:Xst:2677 - Node <counterMSB_units/carry> of sequential type is unconnected in block <simpleChronometer>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block simpleChronometer, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 78
+ Flip-Flops                                            : 78
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : simpleChronometer.ngr
+Top Level Output File Name         : simpleChronometer
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 10
+
+Cell Usage :
+# BELS                             : 335
+#      GND                         : 1
+#      INV                         : 31
+#      LUT1                        : 67
+#      LUT2                        : 37
+#      LUT3                        : 20
+#      LUT4                        : 9
+#      LUT4_D                      : 8
+#      MUXCY                       : 99
+#      VCC                         : 1
+#      XORCY                       : 62
+# FlipFlops/Latches                : 78
+#      FD                          : 8
+#      FDE                         : 5
+#      FDR                         : 30
+#      FDRE                        : 35
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 9
+#      IBUF                        : 1
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700anfgg484-4 
+
+ Number of Slices:                       92  out of   5888     1%  
+ Number of Slice Flip Flops:             70  out of  11776     0%  
+ Number of 4 input LUTs:                172  out of  11776     1%  
+ Number of IOs:                          10
+ Number of bonded IOBs:                  10  out of    372     2%  
+    IOB Flip Flops:                       8
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+--------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                | Load  |
+-----------------------------------+--------------------------------------+-------+
+CLK_50M                            | BUFGP                                | 70    |
+freq_divider_100/clk_out           | NONE(multiplexer_1_sync/mux_output_7)| 8     |
+-----------------------------------+--------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.029ns (Maximum Frequency: 165.865MHz)
+   Minimum input arrival time before clock: 2.649ns
+   Maximum output required time after clock: 5.531ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_50M'
+  Clock period: 6.029ns (frequency: 165.865MHz)
+  Total number of paths / destination ports: 2498 / 172
+-------------------------------------------------------------------------
+Delay:               6.029ns (Levels of Logic = 10)
+  Source:            counterMSB_units/out_0 (FF)
+  Destination:       counterMSB_units/out_7 (FF)
+  Source Clock:      CLK_50M rising
+  Destination Clock: CLK_50M rising
+
+  Data Path: counterMSB_units/out_0 to counterMSB_units/out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             4   0.591   0.730  counterMSB_units/out_0 (counterMSB_units/out_0)
+     LUT1:I0->O            1   0.648   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<0>_rt (counterMSB_units/Mcompar_out_cmp_ge0000_cy<0>_rt)
+     MUXCY:S->O            1   0.632   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<0> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<1> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<2> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<3> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<4> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<5> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  counterMSB_units/Mcompar_out_cmp_ge0000_cy<6> (counterMSB_units/Mcompar_out_cmp_ge0000_cy<6>)
+     MUXCY:CI->O           1   0.269   0.500  counterMSB_units/Mcompar_out_cmp_ge0000_cy<7> (counterMSB_units/out_cmp_ge0000)
+     LUT2:I1->O            8   0.643   0.757  counterMSB_units/out_or00001 (counterMSB_units/out_or0000)
+     FDRE:R                    0.869          counterMSB_units/out_0
+    ----------------------------------------
+    Total                      6.029ns (4.042ns logic, 1.987ns route)
+                                       (67.0% logic, 33.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'freq_divider_100/clk_out'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              2.649ns (Levels of Logic = 2)
+  Source:            SW (PAD)
+  Destination:       multiplexer_1_sync/mux_output_7 (FF)
+  Destination Clock: freq_divider_100/clk_out rising
+
+  Data Path: SW to multiplexer_1_sync/mux_output_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   0.849   0.900  SW_IBUF (SW_IBUF)
+     LUT3:I0->O            1   0.648   0.000  multiplexer_1_sync/mux_output_mux0000<7>1 (multiplexer_1_sync/mux_output_mux0000<7>)
+     FD:D                      0.252          multiplexer_1_sync/mux_output_7
+    ----------------------------------------
+    Total                      2.649ns (1.749ns logic, 0.900ns route)
+                                       (66.0% logic, 34.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'freq_divider_100/clk_out'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              5.531ns (Levels of Logic = 1)
+  Source:            multiplexer_1_sync/mux_output_7 (FF)
+  Destination:       LED<7> (PAD)
+  Source Clock:      freq_divider_100/clk_out rising
+
+  Data Path: multiplexer_1_sync/mux_output_7 to LED<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.420  multiplexer_1_sync/mux_output_7 (multiplexer_1_sync/mux_output_7)
+     OBUF:I->O                 4.520          LED_7_OBUF (LED<7>)
+    ----------------------------------------
+    Total                      5.531ns (5.111ns logic, 0.420ns route)
+                                       (92.4% logic, 7.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.01 secs
+ 
+--> 
+
+
+Total memory usage is 504332 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    9 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

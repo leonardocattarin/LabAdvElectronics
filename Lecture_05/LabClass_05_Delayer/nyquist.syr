@@ -1,0 +1,455 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: nyquist.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "nyquist.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "nyquist"
+Output Format                      : NGC
+Target Device                      : xc3s700an-4-fgg484
+
+---- Source Options
+Top Module Name                    : nyquist
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Module_Latch_14_bit.v" in library work
+Compiling verilog file "module_counter_8_bit.v" in library work
+Module <Module_Latch_14_bit> compiled
+Compiling verilog file "header_DAC_driver.v" in library work
+Module <Module_Counter_8_bit> compiled
+Compiling verilog file "header_ADC_driver.v" in library work
+Module <DAC_Driver> compiled
+Compiling verilog file "nyquist.v" in library work
+Module <ADC_Driver> compiled
+Module <nyquist> compiled
+No errors in compilation
+Analysis of file <"nyquist.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <nyquist> in library <work>.
+
+Analyzing hierarchy for module <Module_Counter_8_bit> in library <work>.
+
+Analyzing hierarchy for module <Module_Latch_14_bit> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <nyquist>.
+WARNING:Xst:2211 - "header_ADC_driver.v" line 46: Instantiating black box module <ADC_Driver>.
+WARNING:Xst:2211 - "header_DAC_driver.v" line 59: Instantiating black box module <DAC_Driver>.
+Module <nyquist> is correct for synthesis.
+ 
+Analyzing module <Module_Counter_8_bit> in library <work>.
+Module <Module_Counter_8_bit> is correct for synthesis.
+ 
+Analyzing module <Module_Latch_14_bit> in library <work>.
+Module <Module_Latch_14_bit> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Module_Counter_8_bit>.
+    Related source file is "module_counter_8_bit.v".
+    Found 1-bit register for signal <carry>.
+    Found 8-bit up counter for signal <out>.
+    Found 8-bit subtractor for signal <out$addsub0000> created at line 17.
+    Found 8-bit comparator greatequal for signal <out$cmp_ge0000> created at line 17.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <Module_Counter_8_bit> synthesized.
+
+
+Synthesizing Unit <Module_Latch_14_bit>.
+    Related source file is "Module_Latch_14_bit.v".
+    Found 14-bit register for signal <twoByteOuput>.
+    Summary:
+	inferred  14 D-type flip-flop(s).
+Unit <Module_Latch_14_bit> synthesized.
+
+
+Synthesizing Unit <nyquist>.
+    Related source file is "nyquist.v".
+WARNING:Xst:646 - Signal <wb_Vb> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb_Va_delayed<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <nyquist> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit subtractor                                      : 1
+# Counters                                             : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 2
+ 1-bit register                                        : 1
+ 14-bit register                                       : 1
+# Comparators                                          : 1
+ 8-bit comparator greatequal                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ADC_Driver.ngc>.
+Reading core <DAC_Driver.ngc>.
+Loading core <ADC_Driver> for timing and area information for instance <ADC_Driver>.
+Loading core <DAC_Driver> for timing and area information for instance <DAC_Driver>.
+WARNING:Xst:2677 - Node <twoByteOuput_0> of sequential type is unconnected in block <Data_Latch>.
+WARNING:Xst:2677 - Node <twoByteOuput_1> of sequential type is unconnected in block <Data_Latch>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit subtractor                                      : 1
+# Counters                                             : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+# Comparators                                          : 1
+ 8-bit comparator greatequal                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <nyquist> ...
+
+Optimizing unit <Module_Latch_14_bit> ...
+WARNING:Xst:2677 - Node <Data_Latch/twoByteOuput_1> of sequential type is unconnected in block <nyquist>.
+WARNING:Xst:2677 - Node <Data_Latch/twoByteOuput_0> of sequential type is unconnected in block <nyquist>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block nyquist, actual ratio is 2.
+INFO:Xst:2260 - The FF/Latch <counter_2> in Unit <ADC_Driver> is equivalent to the following FF/Latch : <counter_2_1> 
+INFO:Xst:2260 - The FF/Latch <counter_1> in Unit <ADC_Driver> is equivalent to the following FF/Latch : <counter_1_1> 
+INFO:Xst:2260 - The FF/Latch <counter_2> in Unit <ADC_Driver> is equivalent to the following FF/Latch : <counter_2_1> 
+INFO:Xst:2260 - The FF/Latch <counter_1> in Unit <ADC_Driver> is equivalent to the following FF/Latch : <counter_1_1> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : nyquist.ngr
+Top Level Output File Name         : nyquist
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 9
+
+Cell Usage :
+# BELS                             : 300
+#      GND                         : 3
+#      INV                         : 14
+#      LUT1                        : 40
+#      LUT2                        : 22
+#      LUT2_D                      : 1
+#      LUT2_L                      : 2
+#      LUT3                        : 45
+#      LUT3_D                      : 1
+#      LUT3_L                      : 2
+#      LUT4                        : 57
+#      LUT4_D                      : 6
+#      LUT4_L                      : 6
+#      MUXCY                       : 48
+#      MUXF5                       : 6
+#      VCC                         : 3
+#      XORCY                       : 44
+# FlipFlops/Latches                : 132
+#      FD                          : 14
+#      FDE                         : 103
+#      FDR                         : 7
+#      FDRE                        : 4
+#      FDRS                        : 1
+#      FDS                         : 2
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      IBUF                        : 2
+#      OBUF                        : 6
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700anfgg484-4 
+
+ Number of Slices:                      123  out of   5888     2%  
+ Number of Slice Flip Flops:            132  out of  11776     1%  
+ Number of 4 input LUTs:                196  out of  11776     1%  
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of    372     2%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+---------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)           | Load  |
+-----------------------------------+---------------------------------+-------+
+CLK_50M                            | BUFGP                           | 120   |
+DAC_Driver/dacNumber               | NONE(Data_Latch/twoByteOuput_13)| 12    |
+-----------------------------------+---------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.290ns (Maximum Frequency: 120.627MHz)
+   Minimum input arrival time before clock: 8.221ns
+   Maximum output required time after clock: 7.030ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_50M'
+  Clock period: 8.290ns (frequency: 120.627MHz)
+  Total number of paths / destination ports: 2822 / 243
+-------------------------------------------------------------------------
+Delay:               8.290ns (Levels of Logic = 6)
+  Source:            ADC_Driver/counter_3 (FF)
+  Destination:       ADC_Driver/counter_4 (FF)
+  Source Clock:      CLK_50M rising
+  Destination Clock: CLK_50M rising
+
+  Data Path: ADC_Driver/counter_3 to ADC_Driver/counter_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             18   0.591   1.071  counter_3 (counter<3>)
+     LUT4_D:I3->O          2   0.648   0.479  old_counter_1_cmp_eq0000611 (N01)
+     LUT4:I2->O            1   0.648   0.423  old_counter_1_cmp_eq00006197 (old_counter_1_cmp_eq00006197)
+     LUT4:I3->O            1   0.648   0.452  old_counter_1_cmp_eq00006303 (old_counter_1_cmp_eq00006303)
+     LUT4_D:I2->O          7   0.648   0.711  old_counter_1_cmp_eq00006339 (old_counter_1_cmp_eq0000)
+     LUT4:I3->O            1   0.648   0.423  counter_mux0000<1>82 (counter_mux0000<1>82)
+     LUT4:I3->O            1   0.648   0.000  counter_mux0000<1>141 (counter_mux0000<1>)
+     FDE:D                     0.252          counter_4
+    ----------------------------------------
+    Total                      8.290ns (4.731ns logic, 3.559ns route)
+                                       (57.1% logic, 42.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_50M'
+  Total number of paths / destination ports: 243 / 47
+-------------------------------------------------------------------------
+Offset:              8.221ns (Levels of Logic = 8)
+  Source:            SW (PAD)
+  Destination:       ADC_Driver/counter_4 (FF)
+  Destination Clock: CLK_50M rising
+
+  Data Path: SW to ADC_Driver/counter_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   0.849   0.749  SW_IBUF (SPI_SCK_generator/Msub_out_addsub0000_cy<1>)
+     begin scope: 'ADC_Driver'
+     LUT4_D:I1->O          2   0.643   0.479  old_counter_1_cmp_eq0000611 (N01)
+     LUT4:I2->O            1   0.648   0.423  old_counter_1_cmp_eq00006197 (old_counter_1_cmp_eq00006197)
+     LUT4:I3->O            1   0.648   0.452  old_counter_1_cmp_eq00006303 (old_counter_1_cmp_eq00006303)
+     LUT4_D:I2->O          7   0.648   0.711  old_counter_1_cmp_eq00006339 (old_counter_1_cmp_eq0000)
+     LUT4:I3->O            1   0.648   0.423  counter_mux0000<1>82 (counter_mux0000<1>82)
+     LUT4:I3->O            1   0.648   0.000  counter_mux0000<1>141 (counter_mux0000<1>)
+     FDE:D                     0.252          counter_4
+    ----------------------------------------
+    Total                      8.221ns (4.984ns logic, 3.237ns route)
+                                       (60.6% logic, 39.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_50M'
+  Total number of paths / destination ports: 7 / 5
+-------------------------------------------------------------------------
+Offset:              7.030ns (Levels of Logic = 3)
+  Source:            ADC_Driver/AMP_CS (FF)
+  Destination:       SPI_MOSI (PAD)
+  Source Clock:      CLK_50M rising
+
+  Data Path: ADC_Driver/AMP_CS to SPI_MOSI
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              7   0.591   0.851  AMP_CS (AMP_CS)
+     end scope: 'ADC_Driver'
+     LUT3:I0->O            1   0.648   0.420  SPI_MOSI1 (SPI_MOSI_OBUF)
+     OBUF:I->O                 4.520          SPI_MOSI_OBUF (SPI_MOSI)
+    ----------------------------------------
+    Total                      7.030ns (5.759ns logic, 1.271ns route)
+                                       (81.9% logic, 18.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.75 secs
+ 
+--> 
+
+
+Total memory usage is 507536 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+

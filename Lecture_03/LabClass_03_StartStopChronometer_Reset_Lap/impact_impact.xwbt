@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/leorando/Lab_Advanced_Electronics/Lecture_03/LabClass_03_StartStopChronometer_Reset_Lap/impact.xsl
+OUTFILE=/home/leorando/Lab_Advanced_Electronics/Lecture_03/LabClass_03_StartStopChronometer_Reset_Lap/impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=/home/leorando/Lab_Advanced_Electronics/Lecture_03/LabClass_03_StartStopChronometer_Reset_Lap
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/leonardo.cattarin/Documents/Lab_Advanced_Electronics/LabClass_01_SimpleCounter_Var2/simpleCounter.ncd
+OUTFILE=/home/leonardo.cattarin/Documents/Lab_Advanced_Electronics/LabClass_01_SimpleCounter_Var2/simpleCounter.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s700an-4fgg484
+WORKINGDIR=/home/leonardo.cattarin/Documents/Lab_Advanced_Electronics/LabClass_01_SimpleCounter_Var2
+LICENSE=WebPack
+USER_INFO=211072777_0_0_836

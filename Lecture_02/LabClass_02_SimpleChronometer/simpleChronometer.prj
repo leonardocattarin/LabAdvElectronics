@@ -1,0 +1,4 @@
+verilog work "module_multiplexer_2_input_8_bit_synchronous.v"
+verilog work "module_frequencyDivider.v"
+verilog work "module_counter_8_bit_sync.v"
+verilog work "simpleChronometer.v"

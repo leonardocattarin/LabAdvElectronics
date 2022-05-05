@@ -1,0 +1,349 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'nyquist'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s700an-fgg484-4 -cm area -ir off -pr b
+-c 100 -o nyquist_map.ncd nyquist.ngd nyquist.pcf 
+Target Device  : xc3s700an
+Target Package : fgg484
+Target Speed   : -4
+Mapper Version : spartan3a -- $Revision: 1.55 $
+Mapped Date    : Tue Nov  9 14:58:24 2021
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Logic Utilization:
+  Number of Slice Flip Flops:           114 out of  11,776    1%
+  Number of 4 input LUTs:               138 out of  11,776    1%
+Logic Distribution:
+  Number of occupied Slices:            112 out of   5,888    1%
+    Number of Slices containing only related logic:     112 out of     112 100%
+    Number of Slices containing unrelated logic:          0 out of     112   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         166 out of  11,776    1%
+    Number used as logic:               138
+    Number used as a route-thru:         28
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                  9 out of     372    2%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                2.85
+
+Peak Memory Usage:  618 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network ADC_Driver/Va_Vb<15> has no load.
+INFO:LIT:395 - The above info message is repeated 15 more times for the
+   following (max. 5 shown):
+   ADC_Driver/Va_Vb<14>,
+   ADC_Driver/Va_Vb<13>,
+   ADC_Driver/Va_Vb<12>,
+   ADC_Driver/Va_Vb<11>,
+   ADC_Driver/Va_Vb<10>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal CLK_50M are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  67 block(s) removed
+  11 block(s) optimized away
+  67 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "ADC_Driver/Va_Vb<15>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<14>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<13>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<12>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<11>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<10>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<9>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<8>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<7>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<6>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<5>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<4>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<3>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<2>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<1>" is sourceless and has been removed.
+The signal "ADC_Driver/Va_Vb<0>" is sourceless and has been removed.
+The signal "ADC_Driver/_add0000<13>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_13" (FF) removed.
+The signal "ADC_Driver/_add0000<10>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_10" (FF) removed.
+The signal "ADC_Driver/_add0000<12>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_12" (FF) removed.
+The signal "ADC_Driver/_add0000<11>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_11" (FF) removed.
+The signal "ADC_Driver/_add0000<9>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_9" (FF) removed.
+The signal "ADC_Driver/_add0000<8>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_8" (FF) removed.
+The signal "ADC_Driver/_add0000<5>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_5" (FF) removed.
+The signal "ADC_Driver/_add0000<7>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_7" (FF) removed.
+The signal "ADC_Driver/_add0000<6>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_6" (FF) removed.
+The signal "ADC_Driver/_add0000<4>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_4" (FF) removed.
+The signal "ADC_Driver/_add0000<3>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_3" (FF) removed.
+The signal "ADC_Driver/_add0000<0>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_0" (FF) removed.
+The signal "ADC_Driver/_add0000<2>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_2" (FF) removed.
+The signal "ADC_Driver/_add0000<1>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_1" (FF) removed.
+The signal "ADC_Driver/_add0001<1>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_15" (FF) removed.
+The signal "ADC_Driver/_add0001<0>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Va_Vb_14" (FF) removed.
+The signal "ADC_Driver/Madd__add0000_lut<0>" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/Madd__add0000_cy<0>" (MUX) removed.
+  The signal "ADC_Driver/Madd__add0000_cy<0>" is sourceless and has been removed.
+   Sourceless block "ADC_Driver/Madd__add0000_cy<1>" (MUX) removed.
+    The signal "ADC_Driver/Madd__add0000_cy<1>" is sourceless and has been removed.
+     Sourceless block "ADC_Driver/Madd__add0000_cy<2>" (MUX) removed.
+      The signal "ADC_Driver/Madd__add0000_cy<2>" is sourceless and has been removed.
+       Sourceless block "ADC_Driver/Madd__add0000_cy<3>" (MUX) removed.
+        The signal "ADC_Driver/Madd__add0000_cy<3>" is sourceless and has been removed.
+         Sourceless block "ADC_Driver/Madd__add0000_cy<4>" (MUX) removed.
+          The signal "ADC_Driver/Madd__add0000_cy<4>" is sourceless and has been removed.
+           Sourceless block "ADC_Driver/Madd__add0000_cy<5>" (MUX) removed.
+            The signal "ADC_Driver/Madd__add0000_cy<5>" is sourceless and has been removed.
+             Sourceless block "ADC_Driver/Madd__add0000_cy<6>" (MUX) removed.
+              The signal "ADC_Driver/Madd__add0000_cy<6>" is sourceless and has been removed.
+               Sourceless block "ADC_Driver/Madd__add0000_cy<7>" (MUX) removed.
+                The signal "ADC_Driver/Madd__add0000_cy<7>" is sourceless and has been removed.
+                 Sourceless block "ADC_Driver/Madd__add0000_cy<8>" (MUX) removed.
+                  The signal "ADC_Driver/Madd__add0000_cy<8>" is sourceless and has been removed.
+                   Sourceless block "ADC_Driver/Madd__add0000_cy<9>" (MUX) removed.
+                    The signal "ADC_Driver/Madd__add0000_cy<9>" is sourceless and has been removed.
+                     Sourceless block "ADC_Driver/Madd__add0000_cy<10>" (MUX) removed.
+                      The signal "ADC_Driver/Madd__add0000_cy<10>" is sourceless and has been removed.
+                       Sourceless block "ADC_Driver/Madd__add0000_cy<11>" (MUX) removed.
+                        The signal "ADC_Driver/Madd__add0000_cy<11>" is sourceless and has been removed.
+                         Sourceless block "ADC_Driver/Madd__add0000_cy<12>" (MUX) removed.
+                          The signal "ADC_Driver/Madd__add0000_cy<12>" is sourceless and has been removed.
+                           Sourceless block "ADC_Driver/Madd__add0000_xor<13>" (XOR) removed.
+                         Sourceless block "ADC_Driver/Madd__add0000_xor<12>" (XOR) removed.
+                       Sourceless block "ADC_Driver/Madd__add0000_xor<11>" (XOR) removed.
+                     Sourceless block "ADC_Driver/Madd__add0000_xor<10>" (XOR) removed.
+                   Sourceless block "ADC_Driver/Madd__add0000_xor<9>" (XOR) removed.
+                 Sourceless block "ADC_Driver/Madd__add0000_xor<8>" (XOR) removed.
+               Sourceless block "ADC_Driver/Madd__add0000_xor<7>" (XOR) removed.
+             Sourceless block "ADC_Driver/Madd__add0000_xor<6>" (XOR) removed.
+           Sourceless block "ADC_Driver/Madd__add0000_xor<5>" (XOR) removed.
+         Sourceless block "ADC_Driver/Madd__add0000_xor<4>" (XOR) removed.
+       Sourceless block "ADC_Driver/Madd__add0000_xor<3>" (XOR) removed.
+     Sourceless block "ADC_Driver/Madd__add0000_xor<2>" (XOR) removed.
+   Sourceless block "ADC_Driver/Madd__add0000_xor<1>" (XOR) removed.
+ Sourceless block "ADC_Driver/Madd__add0000_xor<0>" (XOR) removed.
+The signal "ADC_Driver/Madd__add0000_cy<1>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<2>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<3>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<4>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<5>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<6>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<7>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<8>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<9>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<10>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<11>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_cy<12>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/Madd__add0000_xor<13>_rt" is sourceless and has been
+removed.
+The signal "ADC_Driver/counter_2_1" is sourceless and has been removed.
+The signal "ADC_Driver/counter_1_1" is sourceless and has been removed.
+ Sourceless block "ADC_Driver/old_counter_1_cmp_eq00006184" (ROM) removed.
+  The signal "ADC_Driver/old_counter_1_cmp_eq00006184/O" is sourceless and has
+been removed.
+The signal "ADC_Driver/old_counter_1_cmp_eq00006197" is sourceless and has been
+removed.
+ Sourceless block "ADC_Driver/old_counter_1_cmp_eq00006303" (ROM) removed.
+  The signal "ADC_Driver/old_counter_1_cmp_eq00006303" is sourceless and has been
+removed.
+The signal "ADC_Driver/old_counter_1_cmp_eq00006249" is sourceless and has been
+removed.
+ Sourceless block "ADC_Driver/old_counter_1_cmp_eq00006303_SW0" (ROM) removed.
+  The signal "ADC_Driver/old_counter_1_cmp_eq00006303_SW0/O" is sourceless and has
+been removed.
+The signal "ADC_Driver/N16" is sourceless and has been removed.
+Unused block "ADC_Driver/Madd__add0000_cy<10>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<11>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<12>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<1>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<2>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<3>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<4>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<5>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<6>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<7>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<8>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_cy<9>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0000_lut<0>_INV_0" (BUF) removed.
+Unused block "ADC_Driver/Madd__add0000_xor<13>_rt" (ROM) removed.
+Unused block "ADC_Driver/Madd__add0001_xor<0>" (XOR) removed.
+Unused block "ADC_Driver/Madd__add0001_xor<1>" (XOR) removed.
+Unused block "ADC_Driver/counter_1_1" (FF) removed.
+Unused block "ADC_Driver/counter_2_1" (FF) removed.
+Unused block "ADC_Driver/old_counter_1_cmp_eq00006139_SW0" (ROM) removed.
+Unused block "ADC_Driver/old_counter_1_cmp_eq00006197" (ROM) removed.
+Unused block "ADC_Driver/old_counter_1_cmp_eq00006249" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		ADC_Driver/XST_GND
+VCC 		ADC_Driver/XST_VCC
+LUT4 		ADC_Driver/old_counter_1_cmp_eq00006136
+   optimized to 0
+LUT4_L 		ADC_Driver/old_counter_1_cmp_eq00006139
+   optimized to 0
+LOCALBUF 		ADC_Driver/old_counter_1_cmp_eq00006139/LUT4_L_BUF
+LUT4 		ADC_Driver/old_counter_1_cmp_eq00006139_SW1
+   optimized to 0
+LUT2 		ADC_Driver/old_counter_1_cmp_eq00006314
+   optimized to 0
+GND 		DAC_Driver/XST_GND
+VCC 		DAC_Driver/XST_VCC
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew    | Reg (s)      | Resistor | IBUF/IFD | SUSPEND          |
+|                                    |                  |           |                      | Term  | Strength | Rate    |              |          | Delay    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ADC_OUT                            | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| AD_CONV                            | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| AMP_CS                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| CLK_50M                            | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| DAC_CLR                            | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| DAC_CS                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| SPI_MOSI                           | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| SPI_SCK                            | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| SW                                 | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

@@ -1,0 +1,13 @@
+T9_LOGIC_1,
+sampling_frequency, 49999.689 Hz
+delay_A, 28e-6 s
+delay_B, 36e-6 s
+Gain_A, 1.3175
+Gain_B, 1.3180
+ 
+T9_LOGIC_0,
+sampling_frequency, 183822.550 Hz
+delay_A, 9.48e-6 s
+delay_B, 8.92e-6 s
+Gain_A, 1.313
+Gain_B, 1.316

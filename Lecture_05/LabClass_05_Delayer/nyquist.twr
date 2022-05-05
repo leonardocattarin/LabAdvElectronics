@@ -1,0 +1,148 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -e 3 -s 4 -n
+3 -xml nyquist.twx nyquist.ncd -o nyquist.twr nyquist.pcf -ucf nyquist.ucf -ucf
+dac_driver.ucf -ucf adc_driver.ucf
+
+Design file:              nyquist.ncd
+Physical constraint file: nyquist.pcf
+Device,package,speed:     xc3s700an,fgg484,-4 (PRODUCTION 1.42 2013-10-13)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "CLK_50M_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1788 paths analyzed, 336 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   8.738ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: OFFSET = IN 10 ns VALID 20 ns BEFORE COMP "CLK_50M";
+For more information, see Offset In Analysis in the Timing Closure User Guide (UG612).
+
+ 40 paths analyzed, 30 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors)
+ Minimum allowable offset is   7.012ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: OFFSET = OUT 20 ns AFTER COMP "CLK_50M";
+For more information, see Offset Out Analysis in the Timing Closure User Guide (UG612).
+
+ 7 paths analyzed, 5 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected.
+ Minimum allowable offset is  12.603ns.
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock CLK_50M
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+ADC_OUT     |    2.086(R)|   -0.835(R)|CLK_50M_BUFGP     |   0.000|
+SW          |    7.012(R)|   -1.787(R)|CLK_50M_BUFGP     |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock CLK_50M to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+AD_CONV     |   10.672(R)|CLK_50M_BUFGP     |   0.000|
+AMP_CS      |   11.425(R)|CLK_50M_BUFGP     |   0.000|
+DAC_CS      |   10.341(R)|CLK_50M_BUFGP     |   0.000|
+SPI_MOSI    |   12.603(R)|CLK_50M_BUFGP     |   0.000|
+SPI_SCK     |   11.936(R)|CLK_50M_BUFGP     |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock CLK_50M
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_50M        |    8.738|         |         |         |
+---------------+---------+---------+---------+---------+
+
+OFFSET = IN 10 ns VALID 20 ns BEFORE COMP "CLK_50M";
+Worst Case Data Window 6.177; Ideal Clock Offset To Actual Clock 3.924; 
+------------------+------------+------------+---------+---------+-------------+
+                  |            |            |  Setup  |  Hold   |Source Offset|
+Source            |   Setup    |    Hold    |  Slack  |  Slack  |  To Center  |
+------------------+------------+------------+---------+---------+-------------+
+ADC_OUT           |    2.086(R)|   -0.835(R)|    7.914|   10.835|       -1.461|
+SW                |    7.012(R)|   -1.787(R)|    2.988|   11.787|       -4.400|
+------------------+------------+------------+---------+---------+-------------+
+Worst Case Summary|       7.012|      -0.835|    2.988|   10.835|             |
+------------------+------------+------------+---------+---------+-------------+
+
+OFFSET = OUT 20 ns AFTER COMP "CLK_50M";
+Bus Skew: 2.262 ns; 
+-----------------------------------------------+-------------+--------------+
+PAD                                            | Delay (ns)  |Edge Skew (ns)|
+-----------------------------------------------+-------------+--------------+
+AD_CONV                                        |       10.672|         0.331|
+AMP_CS                                         |       11.425|         1.084|
+DAC_CS                                         |       10.341|         0.000|
+SPI_MOSI                                       |       12.603|         2.262|
+SPI_SCK                                        |       11.936|         1.595|
+-----------------------------------------------+-------------+--------------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 1835 paths, 0 nets, and 622 connections
+
+Design statistics:
+   Minimum period:   8.738ns   (Maximum frequency: 114.443MHz)
+   Minimum input required time before clock:   7.012ns
+   Minimum output required time after clock:  12.603ns
+
+
+Analysis completed Tue Nov  9 14:58:37 2021 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 367 MB
+
+
+
